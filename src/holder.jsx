@@ -1,91 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { Main_navLinks,
-     techSolutionsNavlinks,
-     techServicesNavlinks,
-     TechRetailNavlinks, 
-     accessSolutionNavlinks,
-     cctvNavlinks,
-     } from '../constants'
-
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-
-  // Determine which set of nav links to show based on current route
-  const isTechSolutionsPage = location.pathname === '/tech-solutions';
-  const isTechServicesPage = location.pathname === '/tech-services';
-  const isTechRetailPage = location.pathname === '/tech-retail';
-  const isAccessControlPage = location.pathname === '/tech-solutions/access-control';
-  const isCCTVPage = location.pathname === '/tech-solutions/CCTV'
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Choose which links to display
-  // Choose which links to display based on current page
-  const navLinks = isTechSolutionsPage ? techSolutionsNavlinks 
-    : isTechServicesPage ? techServicesNavlinks 
-    : isTechRetailPage ? TechRetailNavlinks
-    : isAccessControlPage ? accessSolutionNavlinks
-    : isCCTVPage ? cctvNavlinks
-    : Main_navLinks;
-
+/* ── HERO ── */
+function Hero() {
   return (
-    <header className={`navbar ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
-        <div className="inner">
-            {/* Logo - always goes to home */}
-            <Link to="/">
-                <img src="/images/royale_computers_logo.png" alt="Royale Computers Logo" className='logo-img' />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="desktop">
-                <ul>
-                    {navLinks.map(({link, name}) => (
-                        <li key={name} className='group'>
-                            {/* If link starts with /, it's a route - use Link. Otherwise it's a hash - use anchor */}
-                            {link.startsWith('/') && link !== '/' ? (
-                                <Link to={link}>
-                                    <span>{name}</span>
-                                    <span className="underline" />
-                                </Link>
-                            ) : link === '/' ? (
-                                <Link to="/">
-                                    <span>{name}</span>
-                                    <span className="underline" />
-                                </Link>
-                            ) : (
-                                <a href={link}>
-                                    <span>{name}</span>
-                                    <span className="underline" />
-                                </a>
-                            )}
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-
-            {/* Contact button */}
-            <a href="#contact" className='contact-btn group'>
-                <div className="inner">
-                    <span>Contact</span>
-                </div>
-            </a>
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
+      {/* Petals */}
+      {[
+        {w:180,h:180,top:'8%',left:'5%',bg:'#fcc97a',delay:'0s'},
+        {w:120,h:120,top:'20%',right:'8%',bg:'#ffe0ec',delay:'1.5s'},
+        {w:90,h:90,bottom:'15%',left:'12%',bg:'#d8bfff',delay:'3s'},
+        {w:150,h:150,bottom:'10%',right:'6%',bg:'#fcc97a',delay:'2s'},
+        {w:60,h:60,top:'50%',left:'50%',bg:'#ffe0ec',delay:'4s'},
+      ].map((p,i) => (
+        <div key={i} className="petal" style={{width:p.w,height:p.h,top:p.top,left:p.left,right:p.right,bottom:p.bottom,backgroundColor:p.bg,animationDelay:p.delay}}/>
+      ))}
+      <div className="relative z-10 text-center px-6">
+        <p className="font-sans text-white/80 text-xs tracking-[0.35em] uppercase mb-6">Together with their families</p>
+        <h1 className="font-serif text-white text-6xl md:text-8xl leading-tight mb-4">
+          Amara<br/><span className="italic text-softserve-200">&amp;</span><br/>Julian
+        </h1>
+        <p className="font-sans text-white/90 text-sm tracking-widest uppercase mt-4">Request the honour of your presence</p>
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <span className="h-px w-16 bg-white/40"/>
+          <span className="font-serif italic text-white/90 text-lg">Saturday, 14th June 2025</span>
+          <span className="h-px w-16 bg-white/40"/>
         </div>
-    </header>
-  )
+        <a href="#rsvp">
+          <button className="mt-10 gradient-btn text-white font-sans font-semibold text-sm tracking-widest uppercase px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            RSVP Now
+          </button>
+        </a>
+      </div>
+    </section>
+  );
 }
-
-export default Navbar

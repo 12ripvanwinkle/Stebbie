@@ -161,7 +161,7 @@ select:focus {
 
           span {
             @apply transition-colors duration-300  text-base md:text-xl;
-            color: var(--color-flamingo-500);
+            color: var(--color-softserve-100);
           }
 
           .underline {
