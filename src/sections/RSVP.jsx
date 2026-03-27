@@ -1,13 +1,6 @@
 import React from 'react'
-import { useState } from 'react';
-
-const PETALS = [
-  { w: 180, h: 180, top: '8%',    left: '5%',   bg: '#fcc97a', delay: '0s'   },
-  { w: 120, h: 120, top: '20%',   right: '8%',  bg: '#ffe0ec', delay: '1.5s' },
-  { w: 90,  h: 90,  bottom: '15%',left: '12%',  bg: '#d8bfff', delay: '3s'   },
-  { w: 150, h: 150, bottom: '10%',right: '6%',  bg: '#fcc97a', delay: '2s'   },
-  { w: 60,  h: 60,  top: '50%',   left: '50%',  bg: '#ffe0ec', delay: '4s'   },
-];
+import { useState, } from 'react';
+import { petals } from '../constants';
 
 const RSVP = () => {
   const [form, setForm] = useState({ name: '', email: '', guests: '1', meal: '', dietary: '', attending: '' });
@@ -23,7 +16,7 @@ const RSVP = () => {
     <section className="relative py-24 overflow-hidden" id="rsvp">
 
       {/* ── Petals ── */}
-      {PETALS.map((p, i) => (
+      {petals.map((p, i) => (
         <div
           key={i}
           className="petal"
