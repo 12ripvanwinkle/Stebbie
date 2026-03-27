@@ -4,7 +4,7 @@ import { timelineItems, petals } from '../constants'
 
 const Timeline = () => {
   return (
-    <section className="py-24 relative  overflow-hidden" id='timeline'>
+    <section className="py-24 relative overflow-hidden" id='timeline'>
 
         {/* ── Petals ── */}
         {petals.map((p, i) => (

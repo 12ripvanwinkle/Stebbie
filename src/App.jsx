@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import Hero from "./sections/Hero";
 import RSVP from "./sections/RSVP";
 import Timeline from "./sections/Timeline";
+import Venue from "./sections/Venue";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Hero />
         <RSVP />
         <Timeline />
+        <Venue />
       </div>
     </BrowserRouter>
   );
