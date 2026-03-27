@@ -217,3 +217,15 @@ select:focus {
     max-width: 120px;
   }
 }
+/* Gradient wrapper fade-out into cream */
+.gradient-hero-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--cream));
+  pointer-events: none;
+  z-index: 20;
+}

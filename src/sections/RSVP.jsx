@@ -1,0 +1,179 @@
+import React from 'react'
+import { useState } from 'react';
+
+const PETALS = [
+  { w: 180, h: 180, top: '8%',    left: '5%',   bg: '#fcc97a', delay: '0s'   },
+  { w: 120, h: 120, top: '20%',   right: '8%',  bg: '#ffe0ec', delay: '1.5s' },
+  { w: 90,  h: 90,  bottom: '15%',left: '12%',  bg: '#d8bfff', delay: '3s'   },
+  { w: 150, h: 150, bottom: '10%',right: '6%',  bg: '#fcc97a', delay: '2s'   },
+  { w: 60,  h: 60,  top: '50%',   left: '50%',  bg: '#ffe0ec', delay: '4s'   },
+];
+
+const RSVP = () => {
+  const [form, setForm] = useState({ name: '', email: '', guests: '1', meal: '', dietary: '', attending: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
+
+  const submit = () => {
+    if (!form.name || !form.email || !form.attending) return alert('Please fill in all required fields.');
+    setSubmitted(true);
+  };
+
+  return (
+    <section className="relative py-24 overflow-hidden" id="rsvp">
+
+      {/* ── Petals ── */}
+      {PETALS.map((p, i) => (
+        <div
+          key={i}
+          className="petal"
+          style={{
+            width: p.w, height: p.h,
+            top: p.top, left: p.left, right: p.right, bottom: p.bottom,
+            backgroundColor: p.bg,
+            animationDelay: p.delay,
+          }}
+        />
+      ))}
+
+      <div className="relative z-10 max-w-2xl mx-auto px-6">
+
+        {/* ── Header ── */}
+        <div className="text-center mb-14">
+          <p className="font-sans text-white/70 text-xs tracking-[0.35em] uppercase font-semibold mb-2">
+            You're Invited
+          </p>
+          <h2 className="font-serif text-white text-4xl md:text-5xl">
+            RSVP
+          </h2>
+          <div className="mt-4 flex items-center justify-center gap-4">
+            <span className="h-px w-12 bg-white/40" />
+            <p className="font-serif italic text-white/80 text-sm">
+              Kindly reply by <strong className="not-italic font-semibold text-softserve-200">December 19th, 2022</strong>
+            </p>
+            <span className="h-px w-12 bg-white/40" />
+          </div>
+        </div>
+
+        {/* ── Success State ── */}
+        {submitted ? (
+          <div className="text-center py-16 px-8 rounded-3xl shadow-2xl"
+            style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.3)' }}>
+            <div className="text-5xl mb-4">💌</div>
+            <h3 className="font-serif text-3xl text-white mb-2">Thank you, {form.name}!</h3>
+            <p className="font-sans text-white/70 text-sm">
+              We've received your RSVP and can't wait to celebrate with you.
+            </p>
+          </div>
+
+        ) : (
+
+          /* ── Form Card ── */
+          <div className="rounded-3xl shadow-2xl p-8 md:p-12"
+            style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.25)' }}>
+
+            {/* Attending toggle */}
+            <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-2">
+              Will you attend? <span className="text-softserve-200">*</span>
+            </label>
+            <div className="flex gap-3 mb-6">
+              {['Joyfully accepts', 'Regretfully declines'].map(opt => (
+                <button
+                  key={opt}
+                  onClick={() => set('attending', opt)}
+                  className="flex-1 py-3 rounded-xl border-2 font-sans text-sm font-semibold transition-all"
+                  style={form.attending === opt
+                    ? { borderColor: '#fcc97a', background: 'rgba(252,201,122,0.2)', color: '#fcc97a' }
+                    : { borderColor: 'rgba(255,255,255,0.25)', color: 'rgba(255,255,255,0.6)' }}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+
+            {/* Grid fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {[
+                { label: 'Full Name',    key: 'name',  type: 'text',  placeholder: 'Your full name',  required: true },
+                { label: 'Email',        key: 'email', type: 'email', placeholder: 'you@email.com',   required: true },
+              ].map(({ label, key, type, placeholder, required }) => (
+                <div key={key}>
+                  <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                    {label} {required && <span className="text-softserve-200">*</span>}
+                  </label>
+                  <input
+                    type={type}
+                    value={form[key]}
+                    onChange={e => set(key, e.target.value)}
+                    placeholder={placeholder}
+                    className="w-full rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-white/40 bg-transparent border-2 outline-none focus:border-softserve-300 transition-all"
+                    style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)' }}
+                  />
+                </div>
+              ))}
+
+              {/* Guests */}
+              <div>
+                <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                  Number of Guests
+                </label>
+                <select
+                  value={form.guests}
+                  onChange={e => set('guests', e.target.value)}
+                  className="w-full rounded-xl px-4 py-3 font-sans text-sm outline-none transition-all"
+                  style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)', color: '#fff', border: '2px solid rgba(255,255,255,0.25)' }}
+                >
+                  {['1', '2', '3', '4'].map(n => <option key={n} style={{ color: '#374151' }}>{n}</option>)}
+                </select>
+              </div>
+
+              {/* Meal */}
+              <div>
+                <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                  Meal Preference
+                </label>
+                <select
+                  value={form.meal}
+                  onChange={e => set('meal', e.target.value)}
+                  className="w-full rounded-xl px-4 py-3 font-sans text-sm outline-none transition-all"
+                  style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)', color: form.meal ? '#fff' : 'rgba(255,255,255,0.4)', border: '2px solid rgba(255,255,255,0.25)' }}
+                >
+                  <option value="" style={{ color: '#374151' }}>Select a meal</option>
+                  {['Chicken', 'Fish', 'Vegetarian', 'Vegan'].map(m => (
+                    <option key={m} style={{ color: '#374151' }}>{m}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Dietary */}
+            <div className="mt-5">
+              <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                Dietary Restrictions / Allergies
+              </label>
+              <textarea
+                value={form.dietary}
+                onChange={e => set('dietary', e.target.value)}
+                rows={3}
+                placeholder="Please let us know of any allergies or dietary needs…"
+                className="w-full rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-white/40 resize-none outline-none transition-all"
+                style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)', border: '2px solid rgba(255,255,255,0.25)' }}
+              />
+            </div>
+
+            {/* Submit */}
+            <button
+              onClick={submit}
+              className="mt-8 w-full gradient-btn text-white font-sans font-semibold text-sm tracking-widest uppercase py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              Send RSVP
+            </button>
+
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default RSVP;

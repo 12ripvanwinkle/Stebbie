@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Petals */}
         {[
             {w:180,h:180,top:'8%',left:'5%',bg:'#fcc97a',delay:'0s'},

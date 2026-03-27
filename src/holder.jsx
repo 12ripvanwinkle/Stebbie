@@ -1,33 +1,38 @@
-/* ── HERO ── */
-function Hero() {
+/* ── TIMELINE ── */
+const timelineItems = [
+  { time: '3:00 PM', event: 'Guests Arrive', desc: 'Welcome drinks and mingling in the garden courtyard.', icon: '🌸' },
+  { time: '3:45 PM', event: 'Ceremony Begins', desc: 'Please be seated in the Grand Pavilion. Ceremony lasts approximately 45 minutes.', icon: '💍' },
+  { time: '4:30 PM', event: 'Cocktail Hour', desc: 'Canapés, signature cocktails and live acoustic music on the terrace.', icon: '🥂' },
+  { time: '6:00 PM', event: 'Dinner Reception', desc: 'Three-course plated dinner in the Orangery Ballroom.', icon: '🍽️' },
+  { time: '7:30 PM', event: 'Speeches & Toasts', desc: 'Heartfelt words from the wedding party and family.', icon: '🎤' },
+  { time: '8:00 PM', event: 'First Dance', desc: 'Amara & Julian take the floor, followed by the bridal party dance.', icon: '💃' },
+  { time: '8:30 PM', event: 'Dancing & Celebrations', desc: 'Live DJ, photo booth and dessert bar open.', icon: '🎶' },
+  { time: '11:30 PM', event: 'Send-Off', desc: 'Sparkler exit and shuttle service to nearby hotels.', icon: '✨' },
+];
+ 
+function Timeline() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
-      {/* Petals */}
-      {[
-        {w:180,h:180,top:'8%',left:'5%',bg:'#fcc97a',delay:'0s'},
-        {w:120,h:120,top:'20%',right:'8%',bg:'#ffe0ec',delay:'1.5s'},
-        {w:90,h:90,bottom:'15%',left:'12%',bg:'#d8bfff',delay:'3s'},
-        {w:150,h:150,bottom:'10%',right:'6%',bg:'#fcc97a',delay:'2s'},
-        {w:60,h:60,top:'50%',left:'50%',bg:'#ffe0ec',delay:'4s'},
-      ].map((p,i) => (
-        <div key={i} className="petal" style={{width:p.w,height:p.h,top:p.top,left:p.left,right:p.right,bottom:p.bottom,backgroundColor:p.bg,animationDelay:p.delay}}/>
-      ))}
-      <div className="relative z-10 text-center px-6">
-        <p className="font-sans text-white/80 text-xs tracking-[0.35em] uppercase mb-6">Together with their families</p>
-        <h1 className="font-serif text-white text-6xl md:text-8xl leading-tight mb-4">
-          Amara<br/><span className="italic text-softserve-200">&amp;</span><br/>Julian
-        </h1>
-        <p className="font-sans text-white/90 text-sm tracking-widest uppercase mt-4">Request the honour of your presence</p>
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <span className="h-px w-16 bg-white/40"/>
-          <span className="font-serif italic text-white/90 text-lg">Saturday, 14th June 2025</span>
-          <span className="h-px w-16 bg-white/40"/>
+    <section id="timeline" className="py-24 bg-white">
+      <div className="max-w-2xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <p className="font-sans text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">Plan Your Day</p>
+          <h2 className="font-serif text-4xl text-violet-600">Day Timeline</h2>
         </div>
-        <a href="#rsvp">
-          <button className="mt-10 gradient-btn text-white font-sans font-semibold text-sm tracking-widest uppercase px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            RSVP Now
-          </button>
-        </a>
+        <div className="relative">
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-violet-300 via-flamingo-300 to-softserve-300"/>
+          {timelineItems.map((item, i) => (
+            <div key={i} className="relative flex items-start gap-6 mb-10">
+              <div className="relative z-10 flex-shrink-0 w-16 h-16 timeline-dot rounded-2xl flex items-center justify-center text-2xl shadow-md">
+                {item.icon}
+              </div>
+              <div className="pt-1">
+                <span className="font-sans text-xs text-flamingo-400 font-bold tracking-widest uppercase">{item.time}</span>
+                <h3 className="font-serif text-xl text-violet-700 mt-0.5">{item.event}</h3>
+                <p className="font-sans text-gray-500 text-sm mt-1 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
