@@ -40,6 +40,21 @@ const petals = [
   { w: 60,  h: 60,  top: '50%',   left: '50%',  bg: '#ffe0ec', delay: '4s'   },
 ];
 
+const storyChapters = [
+  {
+    title: 'The Night We Met',
+    body: `It was during the 2002 World Cup — Debbie was a humble Spectator who attended due to Keisha Leyow's opportunity. During the second half the legendary Ronaldo Nazario was subbed off for the long time legend Stevealdo Leyow "mesmerizer" where he came on and provided the Winning Assist.`
+  },
+  {
+    title: 'The Moment We Knew',
+    body: `We ended up meeting due to Debbie's interest in Stevealdo's play style, as Debbie believes assists are more beautiful than goals. When their eyes locked — and like how stand users attract other stand users — it was love at first sight.`
+  },
+  {
+    title: 'The Proposal',
+    body: `Two million years later at Keisha's house, Stevealdo and Keisha conducted a plan to propose and the rest is history. 💍`
+  },
+]
+
 const faqs = [
     { q: 'What is the dress code?', a: 'Formal attire. We encourage our guests to embrace jewel tones, blush pinks, and cream. Please avoid wearing white or black.' },
   { q: 'Are children welcome?', a: 'Our wedding is an adult-only celebration (18+). We hope this gives everyone a chance to relax and enjoy the evening. We appreciate your understanding.' },
@@ -51,4 +66,4 @@ const faqs = [
   { q: 'Will there be a gift table at the venue?', a: 'There will be a small gift table for cards. If you plan to bring a physical gift, smaller items are appreciated. Otherwise, our online gift fund is preferred.' },
 ];
 
-export {navlinks, timelineItems, petals, faqs};
+export {navlinks, timelineItems, petals, storyChapters, faqs};

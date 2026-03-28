@@ -24,7 +24,7 @@ const Faqs = () => {
                     </button>
                     {open === i && (
                         <div className="px-6 pb-5">
-                        <p className="font text-sm text-white leading-relaxed">{f.a}</p>
+                        <p className="font text-sm text-babypink-600 leading-relaxed">{f.a}</p>
                         </div>
                     )}
                     </div>

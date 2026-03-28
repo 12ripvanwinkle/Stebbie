@@ -7,6 +7,8 @@ import Venue from "./sections/Venue";
 import Gifts from "./sections/Gifts";
 import Faqs from "./sections/faqs";
 import Footer from "./Footer";
+import OurStory from "./sections/OurStory";
+// import OurStory from "./holder";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Timeline />
         <Venue />
         <Gifts />
+        <OurStory />
         <Faqs />
         <Footer />
       </div>
