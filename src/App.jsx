@@ -6,6 +6,7 @@ import Timeline from "./sections/Timeline";
 import Venue from "./sections/Venue";
 import Gifts from "./sections/Gifts";
 import Faqs from "./sections/faqs";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Venue />
         <Gifts />
         <Faqs />
+        <Footer />
       </div>
     </BrowserRouter>
   );
