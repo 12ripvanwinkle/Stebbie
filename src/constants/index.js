@@ -40,4 +40,15 @@ const petals = [
   { w: 60,  h: 60,  top: '50%',   left: '50%',  bg: '#ffe0ec', delay: '4s'   },
 ];
 
-export {navlinks, timelineItems, petals};
+const faqs = [
+    { q: 'What is the dress code?', a: 'Formal attire. We encourage our guests to embrace jewel tones, blush pinks, and cream. Please avoid wearing white or black.' },
+  { q: 'Are children welcome?', a: 'Our wedding is an adult-only celebration (18+). We hope this gives everyone a chance to relax and enjoy the evening. We appreciate your understanding.' },
+  { q: 'Is the venue wheelchair accessible?', a: 'Yes! The Rosewood Estate is fully accessible. Please let us know in advance if you have any specific needs so we can make appropriate arrangements.' },
+  { q: 'Can I take photos during the ceremony?', a: 'We are having an unplugged ceremony. We kindly ask all guests to put away phones and cameras so everyone can be fully present. Our photographer will capture every moment!' },
+  { q: 'Will there be an open bar?', a: 'Yes — a full open bar will be available during the cocktail hour and reception. A signature "Amara Sunset" cocktail has been created just for the occasion!' },
+  { q: 'What if I have a dietary restriction?', a: 'Please note any dietary requirements in your RSVP form. Our caterers are experienced with gluten-free, nut-free, vegan, and other special diets.' },
+  { q: 'Where should I park?', a: 'Complimentary valet parking is available on-site. We recommend arriving 20–30 minutes early as there is limited self-parking for those who prefer it.' },
+  { q: 'Will there be a gift table at the venue?', a: 'There will be a small gift table for cards. If you plan to bring a physical gift, smaller items are appreciated. Otherwise, our online gift fund is preferred.' },
+];
+
+export {navlinks, timelineItems, petals, faqs};

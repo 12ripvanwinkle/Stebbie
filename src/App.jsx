@@ -5,6 +5,7 @@ import RSVP from "./sections/RSVP";
 import Timeline from "./sections/Timeline";
 import Venue from "./sections/Venue";
 import Gifts from "./sections/Gifts";
+import Faqs from "./sections/faqs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Timeline />
         <Venue />
         <Gifts />
+        <Faqs />
       </div>
     </BrowserRouter>
   );

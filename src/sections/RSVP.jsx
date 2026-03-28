@@ -33,7 +33,7 @@ const RSVP = () => {
 
         {/* ── Header ── */}
         <div className="text-center mb-14">
-          <p className="font-sans text-white/70 text-xs tracking-[0.35em] uppercase font-semibold mb-2">
+          <p className="font text-white/70 text-xs tracking-[0.35em] uppercase font-semibold mb-2">
             You're Invited
           </p>
           <h2 className="font-serif text-white text-4xl md:text-5xl">
@@ -54,7 +54,7 @@ const RSVP = () => {
             style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.3)' }}>
             <div className="text-5xl mb-4">💌</div>
             <h3 className="font-serif text-3xl text-white mb-2">Thank you, {form.name}!</h3>
-            <p className="font-sans text-white/70 text-sm">
+            <p className="font text-white/70 text-sm">
               We've received your RSVP and can't wait to celebrate with you.
             </p>
           </div>
@@ -66,7 +66,7 @@ const RSVP = () => {
             style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.25)' }}>
 
             {/* Attending toggle */}
-            <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-2">
+            <label className="block font text-xs text-white/70 tracking-widest uppercase font-semibold mb-2">
               Will you attend? <span className="text-softserve-200">*</span>
             </label>
             <div className="flex gap-3 mb-6">
@@ -74,7 +74,7 @@ const RSVP = () => {
                 <button
                   key={opt}
                   onClick={() => set('attending', opt)}
-                  className="flex-1 py-3 rounded-xl border-2 font-sans text-sm font-semibold transition-all"
+                  className="flex-1 py-3 rounded-xl border-2 font text-sm font-semibold transition-all"
                   style={form.attending === opt
                     ? { borderColor: '#fcc97a', background: 'rgba(252,201,122,0.2)', color: '#fcc97a' }
                     : { borderColor: 'rgba(255,255,255,0.25)', color: 'rgba(255,255,255,0.6)' }}
@@ -91,7 +91,7 @@ const RSVP = () => {
                 { label: 'Email',        key: 'email', type: 'email', placeholder: 'you@email.com',   required: true },
               ].map(({ label, key, type, placeholder, required }) => (
                 <div key={key}>
-                  <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                  <label className="block font text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
                     {label} {required && <span className="text-softserve-200">*</span>}
                   </label>
                   <input
@@ -99,7 +99,7 @@ const RSVP = () => {
                     value={form[key]}
                     onChange={e => set(key, e.target.value)}
                     placeholder={placeholder}
-                    className="w-full rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-white/40 bg-transparent border-2 outline-none focus:border-softserve-300 transition-all"
+                    className="w-full rounded-xl px-4 py-3 font text-sm text-white placeholder-white/40 bg-transparent border-2 outline-none focus:border-softserve-300 transition-all"
                     style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)' }}
                   />
                 </div>
@@ -107,13 +107,13 @@ const RSVP = () => {
 
               {/* Guests */}
               <div>
-                <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                <label className="block font text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
                   Number of Guests
                 </label>
                 <select
                   value={form.guests}
                   onChange={e => set('guests', e.target.value)}
-                  className="w-full rounded-xl px-4 py-3 font-sans text-sm outline-none transition-all"
+                  className="w-full rounded-xl px-4 py-3 font text-sm outline-none transition-all"
                   style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)', color: '#fff', border: '2px solid rgba(255,255,255,0.25)' }}
                 >
                   {['1', '2', '3', '4'].map(n => <option key={n} style={{ color: '#374151' }}>{n}</option>)}
@@ -122,13 +122,13 @@ const RSVP = () => {
 
               {/* Meal */}
               <div>
-                <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+                <label className="block font text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
                   Meal Preference
                 </label>
                 <select
                   value={form.meal}
                   onChange={e => set('meal', e.target.value)}
-                  className="w-full rounded-xl px-4 py-3 font-sans text-sm outline-none transition-all"
+                  className="w-full rounded-xl px-4 py-3 font text-sm outline-none transition-all"
                   style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)', color: form.meal ? '#fff' : 'rgba(255,255,255,0.4)', border: '2px solid rgba(255,255,255,0.25)' }}
                 >
                   <option value="" style={{ color: '#374151' }}>Select a meal</option>
@@ -141,7 +141,7 @@ const RSVP = () => {
 
             {/* Dietary */}
             <div className="mt-5">
-              <label className="block font-sans text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
+              <label className="block font text-xs text-white/70 tracking-widest uppercase font-semibold mb-1">
                 Dietary Restrictions / Allergies
               </label>
               <textarea
@@ -149,7 +149,7 @@ const RSVP = () => {
                 onChange={e => set('dietary', e.target.value)}
                 rows={3}
                 placeholder="Please let us know of any allergies or dietary needs…"
-                className="w-full rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-white/40 resize-none outline-none transition-all"
+                className="w-full rounded-xl px-4 py-3 font text-sm text-white placeholder-white/40 resize-none outline-none transition-all"
                 style={{ borderColor: 'rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.08)', border: '2px solid rgba(255,255,255,0.25)' }}
               />
             </div>
@@ -157,7 +157,7 @@ const RSVP = () => {
             {/* Submit */}
             <button
               onClick={submit}
-              className="mt-8 w-full gradient-btn text-white font-sans font-semibold text-sm tracking-widest uppercase py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+              className="mt-8 w-full gradient-btn text-white font font-semibold text-sm tracking-widest uppercase py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
             >
               Send RSVP
             </button>

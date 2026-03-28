@@ -15,13 +15,13 @@ const Hero = () => {
         ))}
         
         <div className="relative z-10 text-center px-6 mt-10">
-            <p className="font-sans text-white/80 text-xs tracking-[0.35em] uppercase mb-6">
+            <p className="font text-white/80 text-xs tracking-[0.35em] uppercase mb-6">
                 Together with their families
             </p>
             <h1 className="font-serif text-white text-6xl md:text-8xl leading-tight mb-4">
                 Barbie <br/><span className="italic text-softserve-200">&amp;</span><br/>Ken
             </h1>
-            <p className="font-sans text-white/90 text-sm tracking-widest uppercase mt-4">
+            <p className="font text-white/90 text-sm tracking-widest uppercase mt-4">
                 Request the honour of your presence
             </p>
             <div className="mt-8 flex items-center justify-center gap-4">
@@ -30,7 +30,7 @@ const Hero = () => {
                 <span className="h-px w-16 bg-white/40"/>   
             </div>
             <a href="#rsvp">
-               <button className="mt-10 gradient-btn text-white font-sans font-semibold text-sm tracking-widest uppercase px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+               <button className="mt-10 gradient-btn text-white font font-semibold text-sm tracking-widest uppercase px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 RSVP NOW
                </button> 
             </a>

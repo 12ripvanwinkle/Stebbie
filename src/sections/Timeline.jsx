@@ -21,7 +21,7 @@ const Timeline = () => {
         ))}
         <div className="max-w-2xl mx-auto px-6">
             <div className="text-center mb-14">
-                <p className="font-sans text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">
+                <p className="font text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">
                     Plan Your Day
                 </p>
                 <h2 className="font-serif text-4xl text-violet-600">
@@ -36,9 +36,9 @@ const Timeline = () => {
                         {item.icon}
                     </div>
                     <div className="pt-1">
-                        <span className="font-sans text-xs text-softserve-100 font-bold tracking-widest uppercase">{item.time}</span>
+                        <span className="font text-xs text-softserve-100 font-bold tracking-widest uppercase">{item.time}</span>
                         <h3 className="font-serif text-xl text-violet-700 mt-0.5">{item.event}</h3>
-                        <p className="font-sans text-gray-500 text-sm mt-1 leading-relaxed">{item.desc}</p>
+                        <p className="font text-softserve-100 text-sm mt-1 leading-relaxed">{item.desc}</p>
                     </div>
                     </div>
                 ))}

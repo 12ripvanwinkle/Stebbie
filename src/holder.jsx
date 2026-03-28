@@ -16,19 +16,19 @@ function FAQ() {
     <section id="faq" className="py-24 gradient-section">
       <div className="max-w-2xl mx-auto px-6">
         <div className="text-center mb-14">
-          <p className="font-sans text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">Good to Know</p>
+          <p className="font text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">Good to Know</p>
           <h2 className="font-serif text-4xl text-violet-600">Frequently Asked Questions</h2>
         </div>
         <div className="space-y-3">
           {faqs.map((f, i) => (
             <div key={i} className={`bg-white rounded-2xl border transition-all duration-200 ${open === i ? 'border-violet-300 shadow-md' : 'border-violet-100 shadow-sm'}`}>
               <button className="w-full flex justify-between items-center px-6 py-4 text-left" onClick={() => setOpen(open === i ? null : i)}>
-                <span className="font-sans text-sm font-semibold text-violet-700">{f.q}</span>
+                <span className="font text-sm font-semibold text-violet-700">{f.q}</span>
                 <span className={`text-flamingo-400 text-lg font-light transition-transform duration-300 ${open === i ? 'rotate-45' : ''}`}>+</span>
               </button>
               {open === i && (
                 <div className="px-6 pb-5">
-                  <p className="font-sans text-sm text-gray-500 leading-relaxed">{f.a}</p>
+                  <p className="font text-sm text-gray-500 leading-relaxed">{f.a}</p>
                 </div>
               )}
             </div>
@@ -36,7 +36,7 @@ function FAQ() {
         </div>
         {/* Footer note */}
         <div className="mt-12 text-center">
-          <p className="font-sans text-sm text-gray-400">Still have questions? Email us at <a href="mailto:hello@amarajulian.com" className="text-flamingo-400 font-semibold hover:underline">hello@amarajulian.com</a></p>
+          <p className="font text-sm text-gray-400">Still have questions? Email us at <a href="mailto:hello@amarajulian.com" className="text-flamingo-400 font-semibold hover:underline">hello@amarajulian.com</a></p>
         </div>
       </div>
     </section>
