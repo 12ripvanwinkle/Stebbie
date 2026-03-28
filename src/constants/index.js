@@ -13,7 +13,7 @@ const navlinks = [
     },
     {
         name: "Honeymoon Fund",
-        link: "#fund",
+        link: "#gifts",
     },
     {
         name: "FAQs",

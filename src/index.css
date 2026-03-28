@@ -2,7 +2,30 @@
 @import "tailwindcss";
 
 @theme{
-  --color-violet-50: #f5f0ff;
+  --color-lilac-50: #f9f5ff;
+  --color-lilac-100: #f0e6ff;
+  --color-lilac-200: #e0ccff;
+  --color-lilac-300: #c9a8f5;
+  --color-lilac-400: #b07fe0;
+  --color-lilac-500: #967bb6;
+  --color-lilac-600: #7d5fa0;
+
+  --color-babypink-50: #fff5f9;
+  --color-babypink-100: #ffe6f0;
+  --color-babypink-200: #ffcce0;
+  --color-babypink-300: #ffaacf;
+  --color-babypink-400: #f98dbb;
+  --color-babypink-500: #f472b6;
+  --color-babypink-600: #db5fa3;
+
+  --color-lavender-50: #fdf5fb;
+  --color-lavender-100: #f9e8f7;
+  --color-lavender-200: #f3d0f0;
+  --color-lavender-300: #e8b4e8;
+  --color-lavender-400: #d896d8;
+  --color-lavender-500: #c478c4;
+
+    --color-violet-50: #f5f0ff;
   --color-violet-100: #ede0ff;
   --color-violet-200: #d8bfff;
   --color-violet-300: #b891fa;
@@ -25,8 +48,8 @@
   --color-softserve-400: #f9a825;
   --color-softserve-500: #e08f00;
 
-  --color-cream: #fdf6ee;
-  --color-parchment: #faf0e6;
+  --color-cream: #fdf5fc;
+  --color-parchment: #f7edf6;
 
   --font-serif: "Playfair Display", serif;
   --font: "Lato", sans-serif;
@@ -34,29 +57,34 @@
 
 /* Base */
 body {
-  background-color: #fdf6ee;
+  background-color: #fdf5fc;
   font-family: 'Playfair Display', serif;
+  color: #7d5fa0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Gradients */
 .gradient-hero {
-  background: linear-gradient(135deg, #7c3aed 0%, #f0326a 45%, #fcc97a 100%);
+  background: linear-gradient(135deg, #967bb6 0%, #f472b6 45%, #e8b4e8 100%);
 }
 
 .gradient-section {
-  background: linear-gradient(160deg, #f5f0ff 0%, #fff0f5 60%, #fef9f0 100%);
+  background: linear-gradient(160deg, #f9f5ff 0%, #fff5f9 60%, #fdf5fb 100%);
 }
 
 .gradient-card {
-  background: linear-gradient(135deg, #ede0ff 0%, #ffe0ec 100%);
+  background: linear-gradient(135deg, #f0e6ff 0%, #ffe6f0 100%);
 }
 
 .gradient-btn {
-  background: linear-gradient(90deg, #7c3aed, #f0326a);
+  background: linear-gradient(90deg, #967bb6, #f472b6);
 }
 
 .gradient-btn:hover {
-  background: linear-gradient(90deg, #6d28d9, #d41453);
+  background: linear-gradient(90deg, #7d5fa0, #db5fa3);
 }
 
 /* Floating petals */
@@ -82,7 +110,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #f0326a;
+  color: #f472b6;
 }
 
 /* Section animation */
@@ -112,18 +140,24 @@ textarea,
 select {
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+  color: #7d5fa0;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #c9a8f5;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #b891fa !important;
-  box-shadow: 0 0 0 3px rgba(184, 145, 250, 0.18);
+  border-color: #c9a8f5 !important;
+  box-shadow: 0 0 0 3px rgba(201, 168, 245, 0.18);
 }
 
 /* Timeline */
 .timeline-dot {
-  background: linear-gradient(135deg, #7c3aed, #f0326a);
+  background: linear-gradient(135deg, #967bb6, #f472b6);
 }
 
 /* Copy pill */
@@ -160,8 +194,8 @@ select:focus {
           @apply relative;
 
           span {
-            @apply transition-colors duration-300  text-base md:text-xl;
-            color: var(--color-softserve-100);
+            @apply transition-colors duration-300 text-base md:text-xl;
+            color: var(--color-lavender-100);
           }
 
           .underline {
@@ -178,12 +212,11 @@ select:focus {
   .inner {
     @apply px-5 py-2 rounded-lg transition-colors duration-300;
 
-    /* Use theme colors instead of hard-coded white/black/orange */
-    background-color: var(--color-flamingo-500);
-    color: var(--color-black, #000);
+    background-color: var(--color-babypink-500);
+    color: #fff;
 
     &:hover {
-      background-color: var(--color-violet-500);
+      background-color: var(--color-lilac-500);
       color: var(--color-cream);
     }
 
@@ -197,6 +230,7 @@ select:focus {
   }
 }
 }
+
 /* For The logo image */
 .logo-img {
   width: 100%;
@@ -217,6 +251,7 @@ select:focus {
     max-width: 120px;
   }
 }
+
 /* Gradient wrapper fade-out into cream */
 .gradient-hero-wrapper::after {
   content: '';

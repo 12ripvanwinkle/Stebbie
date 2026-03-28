@@ -19,7 +19,7 @@ const Hero = () => {
                 Together with their families
             </p>
             <h1 className="font-serif text-white text-6xl md:text-8xl leading-tight mb-4">
-                Barbie <br/><span className="italic text-softserve-200">&amp;</span><br/>Ken
+                Barbie <br/><span className="italic text-lavender-200">&amp;</span><br/>Ken
             </h1>
             <p className="font text-white/90 text-sm tracking-widest uppercase mt-4">
                 Request the honour of your presence

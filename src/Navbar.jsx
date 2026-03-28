@@ -54,7 +54,7 @@ const Navbar = () => {
             </nav>
 
             {/* RSVP Button */}
-            <a href="#contact" className='contact-btn group'>
+            <a href="#rsvp" className='contact-btn group'>
                 <div className="inner">
                     <span>RSVP</span>
                 </div>
