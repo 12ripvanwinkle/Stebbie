@@ -53,7 +53,40 @@ const storyChapters = [
     title: 'The Proposal',
     body: `Two million years later at Keisha's house, Stevealdo and Keisha conducted a plan to propose and the rest is history. 💍`
   },
-]
+];
+
+const photos = [
+    {
+        src:     '/images/bruno.jpg',
+        caption: 'Our first trip together 🌍',
+        size:    'tall',   // tall = 2 rows, normal = 1 row
+    },
+    {
+        src:     '/images/diego.png',
+        caption: 'Saturday mornings ☕',
+        size:    'normal',
+    },
+    {
+        src:     '/images/giorno.jpg',
+        caption: 'The proposal night 💍',
+        size:    'normal',
+    },
+    {
+        src:     '/images/gyro.jpg',
+        caption: 'New Year\'s Eve 2023 🎆',
+        size:    'tall',
+    },
+    {
+        src:     '/images/josuke.jpg',
+        caption: 'Beach days 🌊',
+        size:    'normal',
+    },
+    {
+        src:     '/images/jotaro.jpg',
+        caption: 'Just us 🌸',
+        size:    'normal',
+    },
+];
 
 const faqs = [
     { q: 'What is the dress code?', a: 'Formal attire. We encourage our guests to embrace jewel tones, blush pinks, and cream. Please avoid wearing white or black.' },
@@ -66,4 +99,4 @@ const faqs = [
   { q: 'Will there be a gift table at the venue?', a: 'There will be a small gift table for cards. If you plan to bring a physical gift, smaller items are appreciated. Otherwise, our online gift fund is preferred.' },
 ];
 
-export {navlinks, timelineItems, petals, storyChapters, faqs};
+export {navlinks, timelineItems, petals, storyChapters, photos, faqs};

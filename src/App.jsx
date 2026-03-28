@@ -8,7 +8,7 @@ import Gifts from "./sections/Gifts";
 import Faqs from "./sections/faqs";
 import Footer from "./Footer";
 import OurStory from "./sections/OurStory";
-// import OurStory from "./holder";
+import Photos from "./sections/Photos";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         <Venue />
         <Gifts />
         <OurStory />
+        <Photos />
         <Faqs />
         <Footer />
       </div>
