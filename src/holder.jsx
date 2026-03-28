@@ -1,63 +1,42 @@
-/* ── VENUE ── */
-function Venue() {
+/* ── FAQ ── */
+const faqs = [
+  { q: 'What is the dress code?', a: 'Formal attire. We encourage our guests to embrace jewel tones, blush pinks, and cream. Please avoid wearing white or black.' },
+  { q: 'Are children welcome?', a: 'Our wedding is an adult-only celebration (18+). We hope this gives everyone a chance to relax and enjoy the evening. We appreciate your understanding.' },
+  { q: 'Is the venue wheelchair accessible?', a: 'Yes! The Rosewood Estate is fully accessible. Please let us know in advance if you have any specific needs so we can make appropriate arrangements.' },
+  { q: 'Can I take photos during the ceremony?', a: 'We are having an unplugged ceremony. We kindly ask all guests to put away phones and cameras so everyone can be fully present. Our photographer will capture every moment!' },
+  { q: 'Will there be an open bar?', a: 'Yes — a full open bar will be available during the cocktail hour and reception. A signature "Amara Sunset" cocktail has been created just for the occasion!' },
+  { q: 'What if I have a dietary restriction?', a: 'Please note any dietary requirements in your RSVP form. Our caterers are experienced with gluten-free, nut-free, vegan, and other special diets.' },
+  { q: 'Where should I park?', a: 'Complimentary valet parking is available on-site. We recommend arriving 20–30 minutes early as there is limited self-parking for those who prefer it.' },
+  { q: 'Will there be a gift table at the venue?', a: 'There will be a small gift table for cards. If you plan to bring a physical gift, smaller items are appreciated. Otherwise, our online gift fund is preferred.' },
+];
+ 
+function FAQ() {
+  const [open, setOpen] = useState(null);
   return (
-    <section id="venue" className="py-24 gradient-section">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="faq" className="py-24 gradient-section">
+      <div className="max-w-2xl mx-auto px-6">
         <div className="text-center mb-14">
-          <p className="font-sans text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">Where We Celebrate</p>
-          <h2 className="font-serif text-4xl text-violet-600">Venue Details</h2>
+          <p className="font-sans text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-2">Good to Know</p>
+          <h2 className="font-serif text-4xl text-violet-600">Frequently Asked Questions</h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Venue Card */}
-          <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-violet-100">
-            <div className="h-48 flex items-center justify-center text-6xl" style={{background:'linear-gradient(135deg,#ede0ff,#ffe0ec)'}}>
-              🌿
+        <div className="space-y-3">
+          {faqs.map((f, i) => (
+            <div key={i} className={`bg-white rounded-2xl border transition-all duration-200 ${open === i ? 'border-violet-300 shadow-md' : 'border-violet-100 shadow-sm'}`}>
+              <button className="w-full flex justify-between items-center px-6 py-4 text-left" onClick={() => setOpen(open === i ? null : i)}>
+                <span className="font-sans text-sm font-semibold text-violet-700">{f.q}</span>
+                <span className={`text-flamingo-400 text-lg font-light transition-transform duration-300 ${open === i ? 'rotate-45' : ''}`}>+</span>
+              </button>
+              {open === i && (
+                <div className="px-6 pb-5">
+                  <p className="font-sans text-sm text-gray-500 leading-relaxed">{f.a}</p>
+                </div>
+              )}
             </div>
-            <div className="p-7">
-              <h3 className="font-serif text-2xl text-violet-700 mb-1">The Rosewood Estate</h3>
-              <p className="font-sans text-flamingo-400 text-xs tracking-widest uppercase font-semibold mb-4">Ceremony & Reception</p>
-              <ul className="space-y-3 font-sans text-sm text-gray-600">
-                <li className="flex items-start gap-3"><span className="text-violet-400 mt-0.5">📍</span>1240 Rose Garden Lane, Malibu, CA 90265</li>
-                <li className="flex items-start gap-3"><span className="text-violet-400 mt-0.5">🕒</span>Doors open at 2:30 PM</li>
-                <li className="flex items-start gap-3"><span className="text-violet-400 mt-0.5">🚗</span>Free valet parking available on-site</li>
-                <li className="flex items-start gap-3"><span className="text-violet-400 mt-0.5">♿</span>Fully accessible venue</li>
-              </ul>
-              <a href="https://maps.google.com" target="_blank" rel="noopener">
-                <button className="mt-6 w-full gradient-btn text-white font-sans text-xs font-semibold tracking-widest uppercase py-3 rounded-xl transition-all hover:scale-[1.02]">
-                  Get Directions
-                </button>
-              </a>
-            </div>
-          </div>
-          {/* Hotel Card */}
-          <div className="space-y-4">
-            <div className="bg-white rounded-2xl shadow-md p-6 border border-flamingo-100">
-              <h4 className="font-serif text-lg text-violet-700 mb-1">🏨 Recommended Accommodation</h4>
-              <p className="font-sans text-xs text-flamingo-400 uppercase font-semibold tracking-widest mb-3">Block rate reserved for guests</p>
-              <div className="space-y-3">
-                {[
-                  { name: 'The Ocean View Hotel', dist: '5 min drive', code: 'AMARA25' },
-                  { name: 'Sunset Palms Inn', dist: '8 min drive', code: 'JULIAN25' },
-                ].map(h => (
-                  <div key={h.name} className="flex justify-between items-center py-2 border-b border-violet-50 last:border-0">
-                    <div>
-                      <p className="font-sans text-sm font-semibold text-gray-700">{h.name}</p>
-                      <p className="font-sans text-xs text-gray-400">{h.dist} · Code: <span className="text-flamingo-400 font-bold">{h.code}</span></p>
-                    </div>
-                    <span className="text-violet-300 text-lg">→</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md p-6 border border-softserve-100">
-              <h4 className="font-serif text-lg text-violet-700 mb-1">🚌 Shuttle Service</h4>
-              <p className="font-sans text-sm text-gray-500 leading-relaxed">A complimentary shuttle will run between the venue and recommended hotels. Pickup at <strong>2:00 PM</strong>, return at <strong>12:00 AM</strong>.</p>
-            </div>
-            <div className="bg-white rounded-2xl shadow-md p-6 border border-violet-100">
-              <h4 className="font-serif text-lg text-violet-700 mb-2">🌡️ Weather</h4>
-              <p className="font-sans text-sm text-gray-500">June evenings in Malibu are warm (72–80°F). The reception moves indoors at 6 PM — a light layer is recommended.</p>
-            </div>
-          </div>
+          ))}
+        </div>
+        {/* Footer note */}
+        <div className="mt-12 text-center">
+          <p className="font-sans text-sm text-gray-400">Still have questions? Email us at <a href="mailto:hello@amarajulian.com" className="text-flamingo-400 font-semibold hover:underline">hello@amarajulian.com</a></p>
         </div>
       </div>
     </section>

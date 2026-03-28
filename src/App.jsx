@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import RSVP from "./sections/RSVP";
 import Timeline from "./sections/Timeline";
 import Venue from "./sections/Venue";
+import Gifts from "./sections/Gifts";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <RSVP />
         <Timeline />
         <Venue />
+        <Gifts />
       </div>
     </BrowserRouter>
   );
