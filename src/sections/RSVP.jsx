@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { petals } from '../constants';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycby8gbzzSd_sM5dwFRa7fhsP-Pd9wPNq7FJBrXo3m2AUDOkZG8nqns0HHWsHfnqgGuCgXw/exec';
 
@@ -13,6 +14,12 @@ const RSVP = () => {
   const [loading,   setLoading]   = useState(false);
   const [error,     setError]     = useState('');
 
+  // ── Scroll animation refs ──
+  const eyebrowRef = useScrollAnimation()
+  const titleRef   = useScrollAnimation()
+  const dateRef    = useScrollAnimation()
+  const formRef    = useScrollAnimation()
+
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
   const submit = async () => {
@@ -20,10 +27,8 @@ const RSVP = () => {
       setError('Please fill in all required fields.');
       return;
     }
-
     setLoading(true);
     setError('');
-
     try {
       await fetch(GOOGLE_SHEET_URL, {
         method:  'POST',
@@ -62,13 +67,13 @@ const RSVP = () => {
 
         {/* ── Header ── */}
         <div className="text-center mb-14">
-          <p className="font-sans text-white/70 text-xs tracking-[0.35em] uppercase font-semibold mb-2">
+          <p ref={eyebrowRef} className="fade-up font-sans text-white/70 text-xs tracking-[0.35em] uppercase font-semibold mb-2">
             You're Invited
           </p>
-          <h2 className="font-serif text-white text-4xl md:text-5xl">
+          <h2 ref={titleRef} className="fade-up delay-200 font-serif text-white text-4xl md:text-5xl">
             RSVP
           </h2>
-          <div className="mt-4 flex items-center justify-center gap-4">
+          <div ref={dateRef} className="fade-up delay-300 mt-4 flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-white/40" />
             <p className="font-serif italic text-white/80 text-sm">
               Kindly reply by{' '}
@@ -83,7 +88,7 @@ const RSVP = () => {
         {/* ── Success State ── */}
         {submitted ? (
           <div
-            className="text-center py-16 px-8 rounded-3xl shadow-2xl"
+            className="fade-in animate-in text-center py-16 px-8 rounded-3xl shadow-2xl"
             style={{
               background:    'rgba(255,255,255,0.15)',
               backdropFilter:'blur(16px)',
@@ -117,7 +122,8 @@ const RSVP = () => {
 
           /* ── Form Card ── */
           <div
-            className="rounded-3xl shadow-2xl p-8 md:p-12"
+            ref={formRef}
+            className="fade-up delay-400 rounded-3xl shadow-2xl p-8 md:p-12"
             style={{
               background:    'rgba(255,255,255,0.12)',
               backdropFilter:'blur(20px)',
